@@ -6,20 +6,27 @@
         xmlns:local="clr-namespace:Assignment__ListView__and_all_other_Skills_"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas>
+    <Canvas Background="#FFDDDDE0">
         <TextBox x:Name="studentName" 
-            TextWrapping="Wrap" Text="TextBox" Height="16" Canvas.Left="193" Canvas.Top="183" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            TextWrapping="Wrap" Text="studentName" Height="16" Canvas.Left="193" Canvas.Top="86" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="studentName_TextChanged"/>
 
         <TextBox x:Name="firstGrade"
-            TextWrapping="Wrap" Text="TextBox" Canvas.Left="207" Canvas.Top="73" HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="106"/>
+            TextWrapping="Wrap" Text="firstGrade" Canvas.Left="193" Canvas.Top="188" HorizontalAlignment="Left" Height="18" VerticalAlignment="Center" Width="120"/>
 
         <TextBox x:Name="secondGrade"
-            TextWrapping="Wrap" Text="TextBox" Height="17" Canvas.Left="193" Canvas.Top="298" Width="120"/>
+            TextWrapping="Wrap" Text="secondGrade" Height="17" Canvas.Left="193" Canvas.Top="298" Width="120" TextChanged="secondGrade_TextChanged"/>
 
-        <ListView d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="452" Canvas.Top="165" Width="266">
+        <ListView x:Name="ListView" 
+            d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Left="400" Canvas.Top="61" Width="390" SelectionChanged="ListView_SelectionChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Height="245">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+
+
+                    <GridViewColumn Header="Student Name" DisplayMemberBinding="{Binding Name1}"/>
+                    <GridViewColumn Header="Grade1" DisplayMemberBinding="{Binding Grade11}"/>
+                    <GridViewColumn Header="Grade2" DisplayMemberBinding="{Binding Grade21}"/>
+                    <GridViewColumn Header="Grade Average" DisplayMemberBinding="{Binding GetAverageGrade, Mode=OneWay}"/>
+
                 </GridView>
             </ListView.View>
         </ListView>
